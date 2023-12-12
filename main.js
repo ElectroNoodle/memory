@@ -5,7 +5,7 @@ import { cards } from "./cards.js";
 // Generate another one of these
 // Join the two of the two arrays
 
-console.log(cards)
+console.log(cards);
 
 var arrAssignedInts = []
 
@@ -13,9 +13,21 @@ var elements = document.querySelectorAll('div.playing-card__Item');
 
 var arrCompletedInts = []
 
+document.addEventListener("click", funcClick);
+
 //console.log("Array is: " + arrCompletedInts);
 
 var N = 0;
+
+function funcClick(event){
+    
+    var clickedElement = event.target;
+
+    var clickedID = clickedElement.id;
+
+    console.log("Clicked ID is: ", clickedID)
+
+}
 
 function funcMain(){
     
