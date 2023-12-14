@@ -29,6 +29,8 @@ function funcClick(event){
 
     var clickedMatchID = clickedElement.dataset.card;
 
+    clickedElement.className = "playing-card__item-selected";
+
     if (Object.keys(objSelected).length > 0){
 
         console.log(objSelected);
@@ -39,11 +41,24 @@ function funcClick(event){
 
             var cardLastClicked = document.getElementById(objSelected[clickedMatchID]);
 
-            cardLastClicked.style.backgroundColor = "green";
+            cardLastClicked.className = "playing-card__item-match";
 
-            clickedElement.style.backgroundColor = "green";
+            clickedElement.className = "playing-card__item-match";
 
         } else {
+
+            //Need to add in both selected items to the object and then change the classname by selecting the elements using the ID in
+            //object
+
+            setTimeout(function() {
+
+                clickedElement.className = "playing-card__item";
+
+                var lastClicked = document.getElementsByClassName("playing-card__item-selected");
+
+                lastClicked.className = "playing-card__item";
+    
+            },5000);
 
             objSelected = {};
 
@@ -53,6 +68,8 @@ function funcClick(event){
     } else {
 
         objSelected[clickedMatchID] = clickedID;
+
+        clickedElement.className = "playing-card__item-selected";
 
     }
 

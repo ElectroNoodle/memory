@@ -12,3 +12,21 @@
     background-color: red;
     border: 20px solid white;
 }
+
+.playing-card__item-selected{
+    flex: 0 0 20%;
+    width: 100px;
+    height: 150px;
+    /* margin:5px; */
+    background-color: orange;
+    border: 20px solid white;
+}
+
+.playing-card__item-match{
+    flex: 0 0 20%;
+    width: 100px;
+    height: 150px;
+    /* margin:5px; */
+    background-color: green;
+    border: 20px solid white;
+}
