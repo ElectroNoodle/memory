@@ -7,11 +7,13 @@ import { cards } from "./cards.js";
 
 console.log(cards);
 
-var arrAssignedInts = []
+var arrAssignedInts = [];
 
 var elements = document.querySelectorAll('div.playing-card__Item');
 
-var arrCompletedInts = []
+var arrCompletedInts = [];
+
+var objSelected = {};
 
 document.addEventListener("click", funcClick);
 
@@ -25,13 +27,44 @@ function funcClick(event){
 
     var clickedID = clickedElement.id;
 
-    console.log("Clicked ID is: ", clickedID)
+    var clickedMatchID = clickedElement.dataset.card;
+
+    if (Object.keys(objSelected).length > 0){
+
+        console.log(objSelected);
+
+        if (objSelected[clickedMatchID] && objSelected[clickedMatchID] != clickedID){
+
+            console.log("MATCH!");
+
+            var cardLastClicked = document.getElementById(objSelected[clickedMatchID]);
+
+            cardLastClicked.style.backgroundColor = "green";
+
+            clickedElement.style.backgroundColor = "green";
+
+        } else {
+
+            objSelected = {};
+
+        }
+        
+
+    } else {
+
+        objSelected[clickedMatchID] = clickedID;
+
+    }
+
+    console.log("obj is: ", objSelected);
+
+    console.log("Clicked ID is: ", clickedID);
 
 }
 
 function funcMain(){
     
-    funcAssignID(elements);
+    funcAssignValue(elements);
 
 }
 
@@ -65,7 +98,7 @@ function funcRandomNumGen(intExisting){
 
 
 
-function funcAssignID(elements){
+function funcAssignValue(elements){
 
     var array = "";//list of playingcards
     
@@ -73,11 +106,11 @@ function funcAssignID(elements){
 
     elements.forEach(element => {
 
-        N++
+        N++;
 
-        if(element.id){
+        if(element.dataset.cardID){
 
-            console.log(N, " ElementID is: " + element.id);
+            console.log(N, " ElementID is: " + element.dataset.cardID);
 
         } else {
 
@@ -93,15 +126,15 @@ function funcAssignID(elements){
 
                 //console.log(N, " ID already assigned: ", arrFiltered.length, " times.");
 
-                let intNewID = funcRandomNumGen(intID)
+                let intNewID = funcRandomNumGen(intID);
 
                 //console.log(N, " intNewID is: ", intNewID);
 
                 arrAssignedInts.push(intNewID);
                 
-                element.setAttribute('id', intNewID);
+                element.dataset.card = intID;
 
-                //console.log(N, " Set ID attribute as: ", intNewID);
+                console.log(N, " Set ID attribute as: ", intNewID);
 
             } else if (arrFiltered.length == '1'){
 
@@ -109,7 +142,7 @@ function funcAssignID(elements){
 
                 arrCompletedInts.push(intID);
                 
-                element.setAttribute('id', intID);
+                element.dataset.card = intID;
 
                 //console.log(N, " Set ID attribute");
 
@@ -117,7 +150,7 @@ function funcAssignID(elements){
 
                 arrAssignedInts.push(intID);
                 
-                element.setAttribute('id', intID);
+                element.dataset.card = intID;
 
                 //console.log(N, " Set ID attribute");
 
