@@ -1,66 +1,34 @@
 export const cards = [
   {
     id: 1,
-    src: "/",
+    src: "/images/banana.png",
   },
   {
     id: 2,
-    src: "/",
+    src: "/images/beer.png",
   },
   {
     id: 3,
-    src: "/",
+    src: "/images/cake.png",
   },
   {
     id: 4,
-    src: "/",
+    src: "/images/cheese.png",
   },
   {
     id: 5,
-    src: "/",
+    src: "/images/fish.png",
   },
   {
     id: 6,
-    src: "/",
+    src: "/images/fries.png",
   },
   {
     id: 7,
-    src: "/",
+    src: "/images/hotdog.png",
   },
   {
     id: 8,
-    src: "/",
+    src: "/images/pizza.png",
   },
-  {
-    id: 1,
-    src: "/",
-  },
-  {
-    id: 2,
-    src: "/",
-  },
-  {
-    id: 3,
-    src: "/",
-  },
-  {
-    id: 4,
-    src: "/",
-  },
-  {
-    id: 5,
-    src: "/",
-  },
-  {
-    id: 6,
-    src: "/",
-  },
-  {
-    id: 7,
-    src: "/",
-  },
-  {
-    id: 8,
-    src: "/",
-  },
-]
+];
